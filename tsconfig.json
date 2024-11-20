@@ -1,27 +1,46 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
+    "target": "ES6",
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "strict": true,
-    "noEmit": true,
     "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
+    "jsx": "preserve", // For React 17+ JSX transform
     "isolatedModules": true,
-    "jsx": "preserve",
+    "noEmit": true,
+    "allowJs": true,
+    "baseUrl": ".", // Ensure paths work as expected
+    "paths": {
+      "@/*": [
+        "./app/*"
+      ] // Alias for the app directory, adjust if needed
+    },
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "incremental": true,
     "plugins": [
       {
         "name": "next"
       }
-    ],
-    "paths": {
-      "@/*": ["./*"]
-    }
+    ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "app/**/*", // Next.js types
+    "components/**/*", // Include the app directory
+    "next-env.d.ts", // Include pages directory if you're using it
+    "pages/**/*", // If you have a separate components directory
+    "public/**/*" // If you're using assets in public
+    ,
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules", // Exclude node_modules
+    ".next" // Exclude the Next.js build directory
+  ]
 }
