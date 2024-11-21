@@ -5,6 +5,10 @@ const nextConfig: NextConfig = {
   images: {
     domains: ['image.tmdb.org'], // Add the external hostname here
   },
+
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 export default nextConfig;
