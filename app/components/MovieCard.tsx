@@ -5,26 +5,28 @@ import Image from 'next/image';
 interface MovieCardProps {
     id: number; // Make this optional if not needed
     title: string;
-    poster: string;
+    poster: string; // Ensure this holds the dynamic poster path
     releaseDate: string;
     rating: number;
-}
-
-const MovieCard = ({ id, title, poster, releaseDate, rating }: MovieCardProps) => {
+  }
+  
+  const MovieCard = ({ id, title, poster, releaseDate, rating }: MovieCardProps) => {
     return (
-        <Link href={`/movie/${id}`}>
+      <Link href={`/movie/${id}`}>
         <div className="movie-card bg-gray-100 rounded-lg p-4 shadow-md">
-            <Image
-                src={`https://image.tmdb.org/t/p/w500${poster}`}
-                alt={title}
-                className="w-full h-auto rounded-md"
-            />
-            <h3 className="text-lg font-bold mt-2">{title}</h3>
-            <p className="text-sm text-gray-600">Release Date: {releaseDate}</p>
-            <p className="text-sm text-gray-600">Rating: {rating}</p>
+          <Image
+            src={`https://image.tmdb.org/t/p/w500${poster}`} // Use the dynamic poster value
+            alt={`${title} Poster`}
+            width={500}
+            height={750}
+            style={{ objectFit: 'cover' }} // Adjust object-fit as needed
+          />
+          <h3 className="text-lg font-bold mt-2">{title}</h3>
+          <p className="text-sm text-gray-600">Release Date: {releaseDate}</p>
+          <p className="text-sm text-gray-600">Rating: {rating}</p>
         </div>
-        </Link>
+      </Link>
     );
-};
-
-export default MovieCard;
+  };
+  
+  export default MovieCard;

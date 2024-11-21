@@ -2,7 +2,7 @@
   "extends": [
     "next/core-web-vitals",  // This includes rules specifically for Next.js apps
     "eslint:recommended",    // Basic ESLint recommended rules
-    "plugin:react/recommended"  // React-specific linting
+    "plugin:next/recommended"  // React-specific linting
   ],
   "plugins": [
     "next"  // Enable Next.js plugin
